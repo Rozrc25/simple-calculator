@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            width: 70px;
+            padding: 6px;
+            margin: 4px;
+            background-color: white;
+            
+        }
+
+        .sele-op {
+            text-align: center;
+            width: 120px;
+            padding: 6px;
+            margin: 4px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .sele-op:hover {
+            background-color: rgb(245, 245, 163);
+        }
+        .but-ub{
+            border: 1px black solid;
+            width: 70px;
+            padding: 6px;
+            margin: 4px;
+            background-color: white;
+            
+        }
+        .but-ub:hover {
+            background-color: rgb(245, 245, 164);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple calculator</h1>
+    Num 1 : <input type="number" id="num1" />
+    Num 2 : <input type="number" id="num2" />
+    <br />
+    <select class="sele-op" id="op" required>
+        <option value="None">select operator</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <button class="but-ub" type="button" value="Solve" onClick="calc()">Solve</button>
+    <p id="result" name="r1">
+        <br />
+    </p>
+    <script>
+        function calc(form) {
+
+            let D = 0;
+            var A = document.getElementById("num1").value;
+            var B = document.getElementById("op").value;
+            var C = document.getElementById("num2").value;
+
+            if (B === "+") {
+                D = parseInt(A) + parseInt(C);
+            }
+            else if (B === "-") {
+                D = A - C;
+            }
+            else if (B === "*") {
+                D = A * C;
+            }
+            else if (B === "/") {
+                D = A / C;
+            }
+            document.getElementById("result").innerHTML = "Answer = " + D;
+            return false;
+        }
+    </script>
+    <script>
+        let docTitle = document.title;
+window.addEventListener("blur", () => {
+    document.title = "Don't Leave without calculating :("
+})
+window.addEventListener("focus", () => {
+    document.title = docTitle
+})
+    </script>
+</body>
+
+</html>
